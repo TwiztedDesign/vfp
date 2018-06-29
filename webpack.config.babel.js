@@ -7,8 +7,10 @@ module.exports =  {
     entry               : './src/index.js',
     output              : {
         filename        : "vfp.js",
-        path            : join(__dirname, 'dist')
+        path            : join(__dirname, 'dist'),
+        libraryTarget   : 'umd',
 
+        library         : 'VideoflowPlayer'
     },
     devtool             : 'source-map',
     module              : {

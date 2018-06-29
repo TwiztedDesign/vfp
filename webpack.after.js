@@ -21,5 +21,5 @@ if(config && config.destinations){
             fs.copy(source + files[j], dest + files[j], copyCB(source + files[j], dest + files[j]));
         }
     }
-    console.log('Copied vff to dev destinations (async)');
+    console.log('Copied vfp to dev destinations (async)');
 }
