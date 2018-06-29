@@ -80,7 +80,7 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-var VideoflowPlayer = function VideoflowPlayer(url, element) {
+var VideoflowPlayer = function VideoflowPlayer(element, url) {
     var iframe = document.createElement("iframe");
     iframe.src = url + '?controls=0';
 

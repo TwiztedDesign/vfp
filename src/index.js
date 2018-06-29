@@ -1,4 +1,4 @@
-let VideoflowPlayer = (url, element) => {
+let VideoflowPlayer = (element, url) => {
     let iframe = document.createElement("iframe");
     iframe.src = url + '?controls=0';
 
