@@ -1,5 +1,3 @@
-# Videoflow Player
-
 ## Example
 
 ```html
