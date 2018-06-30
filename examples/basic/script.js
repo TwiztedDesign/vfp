@@ -1,7 +1,4 @@
-var youtube = document.querySelector('#youtube');
-var image = document.querySelector('#image');
+var url = 'https://www.videoflow.io/experience/Byvf_oxyVz7';
 
-new VideoflowPlayer(youtube, 'https://www.videoflow.io/experience/Byvf_oxyVz7');
-image.onload = function(){
-    new VideoflowPlayer(image, 'https://www.videoflow.io/experience/Byvf_oxyVz7');
-};
+new VideoflowPlayer('#wrapper1', url);
+new VideoflowPlayer('#wrapper2', url);

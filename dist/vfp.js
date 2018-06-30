@@ -80,25 +80,74 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-var VideoflowPlayer = function VideoflowPlayer(element, url) {
-    var iframe = document.createElement("iframe");
-    iframe.src = url + '?controls=0';
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-    var bb = element.getBoundingClientRect();
-    iframe.style.position = 'absolute';
-    iframe.style.top = bb.top + 'px';
-    iframe.style.left = bb.left + 'px';
-    iframe.style.width = bb.width + 'px';
-    iframe.style.height = bb.height + 'px';
-    iframe.style.border = 'none';
-    insertAfter(iframe, element);
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-VideoflowPlayer.prototype = {};
+var VideoflowPlayer = function () {
+    function VideoflowPlayer(selector, url) {
+        _classCallCheck(this, VideoflowPlayer);
 
-var insertAfter = function insertAfter(newNode, referenceNode) {
-    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-};
+        this.selector = selector;
+        this.url = url;
+        this.element = null;
+        this.iframe = null;
+        this.init();
+        this.createPlayer();
+    }
+
+    _createClass(VideoflowPlayer, [{
+        key: 'init',
+        value: function init() {
+            if (this.selector instanceof Element) {
+                this.element = this.selector;
+                return;
+            }
+            switch (this.selector[0]) {
+                case '<':
+                    {
+                        //create element
+                        var matches = this.selector.match(/<([\w-]*)>/);
+                        if (matches === null || matches === undefined) {
+                            throw 'Invalid Selector / Node';
+                        }
+                        var nodeName = matches[0].replace('<', '').replace('>', '');
+                        this.element = document.createElement(nodeName);
+                        break;
+                    }
+                default:
+                    {
+                        this.element = document.querySelector(this.selector);
+                    }
+            }
+        }
+    }, {
+        key: 'createPlayer',
+        value: function createPlayer() {
+            if (!this.element) {
+                throw 'No such element';
+            }
+            var iframe = document.createElement("iframe");
+            iframe.src = this.url + '?controls=0';
+
+            this.element.style.display = 'inline-block';
+            this.element.style.position = 'relative';
+            iframe.classList.add("videoflow-player-overlay");
+
+            iframe.style.border = 'none';
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.right = '0';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+
+            this.element.appendChild(iframe);
+            this.iframe = iframe;
+        }
+    }]);
+
+    return VideoflowPlayer;
+}();
 
 module.exports = VideoflowPlayer;
 

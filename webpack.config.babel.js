@@ -4,7 +4,7 @@ const WebpackShellPlugin = require('webpack-shell-plugin');
 const include = join(__dirname, 'src');
 
 module.exports =  {
-    entry               : './src/index.js',
+    entry               : './src/vfp.js',
     output              : {
         filename        : "vfp.js",
         path            : join(__dirname, 'dist'),
