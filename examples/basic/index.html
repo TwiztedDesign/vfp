@@ -3,22 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Videoflow player example</title>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="../../dist/vfp.js"></script>
-
+    <script type="text/javascript" src="https://bitmovin-a.akamaihd.net/bitmovin-player/stable/7.7/bitmovinplayer.js"></script>
+    <style>
+        .vf-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
 
     <h1>This is a basic example of the Videoflow Player</h1>
 
-    <div id="wrapper1">
-        <img id="image" src="https://cdn.abcotvs.com/dip/images/2452137_092417-wtvd-shutterstock-nascar-generic-img.jpg?w=1280&r=16:9" style="width: 960px">
-    </div>
+    <!--<div id="wrapper1">-->
+        <!--<img id="image" src="https://cdn.abcotvs.com/dip/images/2452137_092417-wtvd-shutterstock-nascar-generic-img.jpg?w=1280&r=16:9" style="width: 960px">-->
+    <!--</div>-->
 
-    <div id="wrapper2">
-        <iframe id="youtube" width="560" height="315" src="https://www.youtube.com/embed/eKl6EZShaaw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <!--<div id="wrapper2">-->
+        <!--<iframe id="youtube" width="560" height="315" src="https://www.youtube.com/embed/eKl6EZShaaw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+    <!--</div>-->
 
+    <div id="player"></div>
 
     <script src="./script.js"></script>
 
