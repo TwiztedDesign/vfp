@@ -9,8 +9,6 @@ generate the interactivity and the graphics over the existing player, it will be
 
 # Getting Started
 
-# Example
-
 
 ```html
 <html>
@@ -30,6 +28,9 @@ generate the interactivity and the graphics over the existing player, it will be
 ```javascript
 new VideoflowPlayer('#container', 'https://www.videoflow.io/experience/Byvf_oxyVz7');
 ```
+
+# Examples
+## Bitmoving Player
 <diV class="vf-example-container hd">
     <iframe src="https://rawgit.com/TwiztedDesign/vfp/master/examples/basic/index.html"></iframe>
 </div>

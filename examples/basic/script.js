@@ -1,5 +1,5 @@
 // var url = 'https://www.videoflow.io/experience/Byvf_oxyVz7';
-var url = 'http://localhost:3002/experience/BkOskMxXQ';
+var url = 'https://www.videoflow.io/experience/HJBGPfl77';
 
 //new VideoflowPlayer('#wrapper1', url);
 
