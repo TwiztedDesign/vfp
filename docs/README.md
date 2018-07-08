@@ -30,7 +30,6 @@ generate the interactivity and the graphics over the existing player, it will be
 ```javascript
 new VideoflowPlayer('#container', 'https://www.videoflow.io/experience/Byvf_oxyVz7');
 ```
-<diV class="vf-example-container">
-    <img id="image" src="https://cdn.abcotvs.com/dip/images/2452137_092417-wtvd-shutterstock-nascar-generic-img.jpg?w=1280&r=16:9">
-    <iframe src="http://localhost:3002/experience/rJNznWuz7?controls=0"></iframe>
+<diV class="vf-example-container hd">
+    <iframe src="https://rawgit.com/TwiztedDesign/vfp/master/examples/basic/index.html"></iframe>
 </div>

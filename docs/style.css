@@ -87,6 +87,15 @@ body{
 
 .vf-example-container{
     position: relative;
+    overflow: hidden;
+}
+
+
+.vf-example-container.hd::before{
+    content: ' ';
+    padding-bottom: 56.25%;
+    position: relative;
+    display: block;
 }
 
 .vf-example-container iframe{
