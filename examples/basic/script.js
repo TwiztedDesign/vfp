@@ -1,4 +1,5 @@
-var url = 'https://www.videoflow.io/experience/Byvf_oxyVz7';
+// var url = 'https://www.videoflow.io/experience/Byvf_oxyVz7';
+var url = 'http://localhost:3002/experience/SyG9T3sfm';
 
 //new VideoflowPlayer('#wrapper1', url);
 
@@ -18,8 +19,7 @@ player.setup(conf).then(
     function(value) {
         // Success
         console.log('Successfully created bitmovin player instance');
-        $('<div id="vf-player"></div>').insertBefore(".bmpui-ui-uicontainer");
-        new VideoflowPlayer('#vf-player', url);
+        new VideoflowPlayer(player, url);
     },
     function(reason) {
         // Error!

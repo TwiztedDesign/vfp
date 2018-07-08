@@ -80,6 +80,8 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -102,24 +104,34 @@ var VideoflowPlayer = function () {
             if (this.selector instanceof Element) {
                 this.element = this.selector;
                 return;
-            }
-            switch (this.selector[0]) {
-                case '<':
-                    {
-                        //create element
-                        var matches = this.selector.match(/<([\w-]*)>/);
-                        if (matches === null || matches === undefined) {
-                            throw 'Invalid Selector / Node';
+            } else if (typeof this.selector === 'string') {
+                switch (this.selector[0]) {
+                    case '<':
+                        {
+                            //create element
+                            var matches = this.selector.match(/<([\w-]*)>/);
+                            if (matches === null || matches === undefined) {
+                                throw 'Invalid Selector / Node';
+                            }
+                            var nodeName = matches[0].replace('<', '').replace('>', '');
+                            this.element = document.createElement(nodeName);
+                            break;
                         }
-                        var nodeName = matches[0].replace('<', '').replace('>', '');
-                        this.element = document.createElement(nodeName);
-                        break;
-                    }
-                default:
-                    {
-                        this.element = document.querySelector(this.selector);
-                    }
+                    default:
+                        {
+                            this.element = document.querySelector(this.selector);
+                        }
+                }
+            } else if (this.isBitmovinPlayer()) {
+                this.element = this.selector.getFigure();
+                this.overlay_type = 'bitmovin';
+                this.isBitmovin = true;
             }
+        }
+    }, {
+        key: 'isBitmovinPlayer',
+        value: function isBitmovinPlayer() {
+            return _typeof(this.selector) === 'object' && this.selector.getFigure && typeof this.selector.getFigure === 'function' && this.selector.getFigure() && this.selector.getFigure().classList.contains('bitmovinplayer-container');
         }
     }, {
         key: 'createPlayer',
@@ -133,13 +145,22 @@ var VideoflowPlayer = function () {
             this.element.style.display = 'inline-block';
             this.element.style.position = 'relative';
             iframe.classList.add("videoflow-player-overlay");
-
             iframe.style.border = 'none';
             iframe.style.position = 'absolute';
-            iframe.style.top = '0';
-            iframe.style.right = '0';
             iframe.style.width = '100%';
-            iframe.style.height = '100%';
+            iframe.style.right = '0';
+            iframe.style.left = '0';
+
+            switch (this.overlay_type) {
+                case 'bitmovin':
+                    iframe.style.bottom = '80px';
+                    iframe.style['z-index'] = '1';
+                    iframe.style.height = '30%';
+                    break;
+                default:
+                    iframe.style.top = '0';
+                    iframe.style.height = '100%';
+            }
 
             this.element.appendChild(iframe);
             this.iframe = iframe;
