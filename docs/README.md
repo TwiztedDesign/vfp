@@ -4,7 +4,7 @@ along with the rest of Videoflows functionality such as interactivity, 360 conte
 and then add it to your DOM. This way, you can get the events from the player and respond to them within your website. For example, you can change the color of your background, based on the events that are
 emitted by the player.
 
-In addition to that, Videoflow player can also be integrated into other players. In those cases the video playback functionality will not be a part of Videoflow. Instead Videoflow will act as a transparent overlay that will
+In addition to that, Videoflow player can also be integrated into other players. In those cases the video playback functionality will not be a part of Videoflow. Instead, Videoflow will act as a transparent overlay that will
 generate the interactivity and the graphics over the existing player, it will become a layer within a third party player. This functionality is useful if you already have a player, and you want to add the interactive functionality along with the rest of the powerful features of Videoflow.
 
 # Getting Started
@@ -46,8 +46,8 @@ This example load the player into an empty div. This is useful when loading a st
 
 
 ## Bitmoving Player
-Videoflow can be also loaded as an overlay with other plays, In this example Videoflow player loads an overlay project (no video, just interactive content) over a Bitmovin player. The initialization
-method stays the same, but instead of a quesry selection we pass the instance of the Bitmoving player in the script
+Videoflow can be also loaded as an overlay with other players, In this example Videoflow player loads an overlay project (no video, just interactive content) over a Bitmovin player. The initialization
+method stays the same, but instead of a query selector we pass the instance of the Bitmoving player in the script
 
 ```javascript
 var conf = {
@@ -63,10 +63,10 @@ var conf = {
 // Initialize the Bitmovin player
 var BMPlayer = bitmovin.player('player');
 var VFPlayer;
-MBPPlayer.setup(conf).then(
+BMPlayer.setup(conf).then(
     function(value) {
         // Initialize the Videoflow player overlay on successful load of the Bitmovin player
-        VFPlayer = new VideoflowPlayer(player,'https://www.videoflow.io/experience/xxx-xxxx-xxx' );
+        VFPlayer = new VideoflowPlayer(BMPlayer,'https://www.videoflow.io/experience/xxx-xxxx-xxx' );
     },
     function(reason) {
         // Error!
