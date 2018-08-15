@@ -5,7 +5,7 @@ var url = 'https://www.videoflow.io/experience/HJBGPfl77';
 
 
 var conf = {
-    key: '97448c59-7697-4ff3-bae1-ed41b2358f44',
+    key: '42679f1a-302b-40c7-a459-927957b07a4e',
     source: {
         dash: 'https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd',
         hls: 'https://bitmovin-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8',
