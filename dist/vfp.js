@@ -155,7 +155,8 @@ var VideoflowPlayer = function () {
                 case 'bitmovin':
                     iframe.style.bottom = '80px';
                     iframe.style['z-index'] = '1';
-                    iframe.style.height = '30%';
+                    iframe.style.height = '80%';
+                    // iframe.style.width = '30%';
                     break;
                 default:
                     iframe.style.top = '0';
