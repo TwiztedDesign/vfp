@@ -44,7 +44,7 @@ This example load the player into an empty div. This is useful when loading a st
 </html>
 ```
 
-<!---
+
 ## Bitmoving Player
 Videoflow can be also loaded as an overlay with other players, In this example Videoflow player loads an overlay project (no video, just interactive content) over a Bitmovin player. The initialization
 method stays the same, but instead of a query selector we pass the instance of the Bitmoving player in the script
@@ -74,9 +74,8 @@ BMPlayer.setup(conf).then(
     }
 );
 ```
-<diV class="vf-example-container hd">
+<!---<div class="vf-example-container hd">
     <iframe src="https://rawgit.com/TwiztedDesign/vfp/master/examples/basic/index.html"></iframe>
 </div>
 In the above example the overlay is interactive. Clicking the lower third will make it animate out and animate back in after 3 seconds.
-The rest of the player controls a also available.
--->
+The rest of the player controls a also available.-->
